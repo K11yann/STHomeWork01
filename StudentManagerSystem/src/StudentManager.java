@@ -16,7 +16,7 @@ public class StudentManager {
             printList(list);
         }
         else{
-            System.out.println("没有你想要的记录");
+            System.out.println("这里还没有记录哦，快去添加吧！！！！！！");
         }
     }
 
@@ -26,7 +26,7 @@ public class StudentManager {
         }
         else{
             Student stu = new Student();
-            System.out.println("下面开始添加记录——————————————————————————————————");
+            System.out.println("下面开始添加记录--------------------------------------");
             System.out.println("请输入学生学号：");
             int id = 0;
             while(true){
@@ -109,6 +109,7 @@ public class StudentManager {
     public boolean updateStudent(){
         Student stu = new Student();
         System.out.println("请输入你要修改的记录的id（同学学号）：");
+        Student s = new Student();
         int id = 0;
         while(true){
             String str = input.next();
@@ -123,19 +124,28 @@ public class StudentManager {
         boolean f = false;
         for(int i=0;i<list.size();i++){
             if(list.get(i).getId() == id){
+                s = list.get(i);
                 f = true;
                 break;
             }
         }
         if(f){
-            System.out.println("下面输入修改信息——————————————————————————————————");
-            System.out.println("请输入学生姓名：");
+            System.out.println("下面输入修改信息---------------------------------------------");
+            System.out.println("原姓名为:"+s.getName()+"\n请输入学生姓名：");
             String name = input.next();
-            System.out.println("请输入学生邮箱：");
+            System.out.println("原邮箱："+s.getEmail()+"\n请输入学生邮箱：");
             String email = input.next();
-            System.out.println("请输入学生出生日期：");
+            System.out.println("原出生日期为："+s.getBirDate()+"\n请输入学生出生日期：");
             String birDate = input.next();
-            System.out.println("请输入学生性别（男or女）：");
+            Boolean gend = s.getGender();
+            String intgend ;
+            if(gend){
+                intgend = "男";
+            }
+            else{
+                intgend = "女";
+            }
+            System.out.println("原性别为："+intgend+"\n请输入学生性别（男or女）：");
             String truGen = input.next();
             boolean gender = false;
             if(truGen.equals("女")){
@@ -152,6 +162,7 @@ public class StudentManager {
                     list.get(i).setGender(gender);
                 }
             }
+            System.out.println("修改成功！");
         }
         else{
             System.out.println("没有找到相关同学");
@@ -166,8 +177,10 @@ public class StudentManager {
         for(int i=0;i<list.size();i++){
             if(list.get(i).getName().equals(name)){
                 list.remove(i);
+                i = 0;
             }
         }
+        System.out.println("删除成功！");
         return true;
     }
 
@@ -264,9 +277,4 @@ public class StudentManager {
             }
         }
     }
-
-
-
-
-
 }
