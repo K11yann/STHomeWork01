@@ -86,6 +86,7 @@ public class StudentManager {
         }
     }
 
+
     public List<Student> searchStuent(){
         List<Student> sealist = new ArrayList<Student>();
         System.out.println("请输入你要查找的同学的名字：");
