@@ -10,7 +10,8 @@ public class Student {
 
     private String email;
 
-    private String birDate;
+    //private String birDate; 问题：1
+    private String birthDate;
 
     private Boolean gender;
 
@@ -30,13 +31,22 @@ public class Student {
         this.name = name;
     }
 
-    public String getBirDate() {
-        return birDate;
+    public String getBirthDate() {
+        return birthDate;
     }
 
-    public void setBirDate(String birDate) {
-        this.birDate = birDate;
+    public void setBirthDate(String birDate) {
+        this.birthDate = birDate;
     }
+
+//    问题：1
+//    public String getBirDate() {
+//        return birthDate;
+//    }
+//
+//    public void setBirDate(String birDate) {
+//        this.birthDate = birDate;
+//    }
 
     public Boolean getGender() {
         return gender;
@@ -54,13 +64,26 @@ public class Student {
         this.email = email;
     }
 
+//    问题：1
+//    @Override
+//    public String toString() {
+//        return "Student{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", email='" + email + '\'' +
+//                ", birDate='" + birthDate + '\'' +
+//                ", gender=" + gender +
+//                '}';
+//    }
+
+
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", birDate='" + birDate + '\'' +
+                ", birthDate='" + birthDate + '\'' +
                 ", gender=" + gender +
                 '}';
     }
